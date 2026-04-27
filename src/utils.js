@@ -58,7 +58,8 @@ export const fetchUserProfile = async (display_id) => {
     const {data} = await supabase
         .from('users')
         .select(`
-            *,
+            displayname,
+            bio,
             hats(hat_name)
         `)
         .eq('display_id', display_id)
@@ -127,7 +128,7 @@ export const fetchPosts = async () =>{
     const {data} = await supabase
         .from('posts')
         .select(`
-            *,
+            id, created_at, title, body, image_url, likes, temporary_name,
             users(
                 displayname,
                 display_id,
@@ -178,7 +179,7 @@ export const fetchComments = async (post_id) =>{
     const {data} = await supabase
         .from('comments')
         .select(`
-            *,
+            created_at, body, temporary_name,
             users(
                 displayname,
                 display_id,

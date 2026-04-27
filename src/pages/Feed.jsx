@@ -11,7 +11,6 @@ const Feed = () =>{
     const [sortBasis, setSortBasis] = useState('created_at')
     
     useEffect(()=>{
-        console.log("feed mounted")
         const fn = async () =>{
             const data = await fetchPosts();
             setPosts(data);

@@ -11,7 +11,6 @@ const UserProfile = () => {
         const fn = async () => {
             const data = await fetchUserProfile(user_id)
             setProfileData(data)
-            console.log(data)
         }
         fn();
     },[])
