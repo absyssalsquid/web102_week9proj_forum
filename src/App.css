@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Grenze:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Metamorphous&display=swap');
+
+:root {
+    --body-font: Georgia, "Times New Roman", Times, serif;
+    --font-ornate: "Pirata One", system-ui, serif;
+    --font-header: "Grenze", system-ui, serif;
+
+    --selection-color: rgba(190, 27, 27, 0.425);
+    --body-text-color: rgba(37, 29, 15, 0.87);
+    --navbar-color: #5e0a0a;
+
+    --parchment-color: rgb(247, 231, 217);
+    --mini-form-bg-color: rgb(171, 202, 98); 
+  
+    font-family: var(--body-font);
+    
+    color: var(--body-text-color);
+}
+
+
+a {
+  color: #cf1212;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+::selection{
+    background-color: var(--selection-color);
+}
+
+
+/* -------------------------------------------------------------  header  ----------------------------------------------------------*/
+
+.navbar {
+    color:white;
+    background-color: var(--navbar-color);
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    font-family: var(--font-header);
+}
+.navbar > a {
+    text-decoration: none;
+    color: inherit;
+
+    text-shadow: 5px 0px transparent, -5px 0px transparent;
+    transition: all 0.5s ease-in-out;
+}
+.navbar > a:hover,
+.navbar > a.logo:hover{
+    background-color: #000000;
+    text-shadow: 0px 0px #ffffff, -0px 0px #ffffff;
+    color: transparent;
+}
+.navbar > a.logo{
+    font-family: var(--font-ornate);
+    font-size: 2em;
+    text-shadow: 10px 0px transparent, -10px 0px transparent;
+}
+
+
+.navbar > * {padding: 0 1em;}
+.navbar > :not(.user-info){
+    display: flex;
+    align-items: center;
+}
+.navbar-item:hover {background-color: rgba(255, 255, 255, 0.589);}
+.navbar > .user-info { text-align: right; }
+.navbar > .user-info > .userid{font-size: 0.5em; opacity: 0.5;}
+.navbar .sign-out{
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+.navbar .sign-out:hover{
+    background-color: rgb(201, 9, 9);
+    color: white ;
+}
+.page {
+    padding: 1em;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ---------------------------------------------------  singlular post elements  ---------------------------------------------------*/
+
+.user-display-tag{
+    display: flex;
+    align-items: center;
+    margin: 3px 0;
+    font-family: var(--font-header);
+}
+.user-display-tag a{
+    color: inherit;
+    text-decoration: underline;
+}
+
+img.hat {
+    width: 16px;
+    margin-right: 4px;
+    image-rendering: pixelated; 
+}
+.date{
+    opacity: 0.5;
+    font-size: 0.8em;
+}
+
+/* likes */
+.likes{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+.like-icon {
+    cursor: pointer;
+    font-size: 1.2em;
+    transition-duration: 0.3s;
+    margin-right: 0.3em;
+    user-select: none;
+}
+
+.like-icon:hover {
+    color: rgb(196, 19, 19);
+    text-shadow: 0 0 15px rgb(179, 28, 17);
+    /* rgb(199, 24, 24) */
+}
+
+.like-count{
+    font-family: var(--font-header);
+}
+
+/* ------------------------------------------------------------  feed  -------------------------------------------------------------*/
+
+.feed-search {
+    box-sizing: border-box;
+    height: var(--height);
+    margin: 1em 0;
+    padding: 0.5em;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: var(--mini-form-bg-color);
+    position: relative;
+    --height: 3em; 
+
+    font-family: var(--font-header);
+    font-size: 1.1em;
+}
+.feed-search:before, .feed-search:after {
+    content: "";
+    position: absolute;
+    display: block;
+    border: calc(0.5 * var(--height)) solid var(--mini-form-bg-color);
+    bottom: 0;
+}
+.feed-search:before {
+    left: calc(-1 * var(--height) + 1px);
+    border-left-color: transparent;
+}
+.feed-search:after {
+    right: calc(-1 * var(--height) + 1px);
+    border-right-color: transparent;
+}
+
+.feed-search label                     {margin-right: 0.5em;}
+.feed-search label:not(:first-of-type) {margin-left: 1.5em;}
+
+.feed-search select {width: 7em;}
+.feed-search select, 
+.feed-search input {
+    font-family: var(--font-header);
+    line-height: 0.5em;
+}
+
+.tile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+
+/* --------------------------------------------------------  single post  ---------------------------------------------------------*/
+.post {
+    background-color: var(--parchment-color);
+    /* border: 1px solid rgb(70, 53, 46); */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px -3px rgba(59, 45, 4, 0.548);
+    
+    padding: 0.8em 0;
+    text-align: left;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+}
+
+
+.post-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post > .post-header > .title {
+    font-weight: bold;
+    font-family: var(--font-header);
+    font-size: 1.6em;
+    line-height: 1.2em;
+}
+.post.tile > .post-header > a.title {
+    font-size: 1.4em;
+    line-height: 1em;
+}
+
+.post > :not(img){
+    margin: 0 1em;
+}
+
+.post > .body-text{
+    line-height: 1.4em;
+    white-space: pre-wrap;
+}
+
+.post > img{
+    max-width: 100%;
+    max-height: 90vh;
+}
+
+/* -----------------------------------------------------------  comments  ---------------------------------------------------------*/
+.comment-section{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 1em 0;
+}
+.comment{
+    text-align: left;
+    line-height: 1.4em;
+    padding: 1em;
+    background-color: rgba(228, 227, 192, 0.959);
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.comment .date{
+    margin-left: 1em;
+}
+
+/* ------------------------------------------------------  sign in  ------------------------------------------------------------*/
+
+.sign-in {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign-in input {
+    width: 100%;
+    max-width: 300px;
+    margin: 0.5em 0;
+    font-family: var(--font-header);
+    font-size: 1.2em;
+}
+
+.sign-in button {
+    margin: 0.5em;
+    padding: 0.5em 0.7em;
+}
+
+.error-msg {
+    color: rgb(230, 3, 3);
+    margin: 1em 0;
+}
+
+/* ----------------------------------------------  post create/update/delete  ----------------------------------------------------*/
+
+.post-modify form{
+    background-color: var(--parchment-color);
+    padding: 1em;
+    border-radius: 5px;
+}
+
+.post-modify button {
+    margin: 0.5em;
+    padding: 0.5em 0.7em;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+
+.post-modify button.delete {
+    background-color: rgb(160, 9, 9);
+    color: white;
+}
+.post-modify button.delete:hover {
+    background-color: rgb(214, 6, 6);
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------*/
+.user-profile {
+    padding: 1em;
+    min-height: 400px;
+    background-color: var(--parchment-color);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+.user-profile .title{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.user-profile img.hat{
+    height: 32px;
+    width: 32px;
+}
+.user-profile .displayname{
+    font-family: var(--font-header);
+    font-size: 2.6em;
+    font-weight: bold;
+}
+
+.user-profile .bio {
+    text-align: left;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------*/
+select, input, textarea {
+    padding: 3px 5px;
+    font-size: 1em;
+    font-family: var(--body-font);
+    resize: vertical; 
+}
+input:focus, textarea:focus, button:focus {
+    outline: 2px solid white;
+}
+
+button{
+    font-family: var(--body-font);
+}
+.flex-growable{
+    flex-grow: 999;
+}

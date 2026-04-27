@@ -1,0 +1,38 @@
+:root {
+  font-size: 14px;
+  @media (min-width: 700px) {
+    font-size: 16px;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: rgba(14, 7, 22, 0.952);
+  background-color: rgb(18, 24, 18);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: url(https://media.istockphoto.com/id/1976244093/vector/medieval-seamless-pattren-with-floral-motif-dragons-lions-fantasy-princess.jpg);
+  
+  opacity: 8%;
+  z-index: -1;
+}
+
+#root {
+  /* width: 1126px; */
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
